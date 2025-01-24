@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public TextMeshProUGUI scoreText;
+    public AudioSource audioSource; 
+    public AudioClip pointSound;    // Som ao marcar ponto
+    public AudioClip gameOverSound; // Som de Game Over
     public int points = 0;
 
      private void Awake()
@@ -30,8 +33,19 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemy);
             IncrementPoints(1);
+            PlaySound(pointSound);
         } else {
+            PlaySound(gameOverSound);
             GameOver();
+        }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.clip = clip; // Define o som desejado
+            audioSource.Play();      // Reproduz o som
         }
     }
 

@@ -6,7 +6,7 @@ public class SpawnEnemies : MonoBehaviour
 {
     public List<GameObject> enemies = new List<GameObject>();
     public GameObject player;
-    public float spawnerTime = 2f;
+    public float spawnerTime = 2f; 
     public float counter = 0f;
     void Start()
     {
@@ -19,7 +19,8 @@ public class SpawnEnemies : MonoBehaviour
         counter += Time.deltaTime;
 
         if (counter >= spawnerTime) {
-            GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position, transform.rotation);
+
+            GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position, Quaternion.identity);
             Renderer enemyRenderer = spawnedEnemy.GetComponent<Renderer>();
             Renderer playerRenderer = player.GetComponent<Renderer>();
 

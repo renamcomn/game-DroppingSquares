@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5846183969843560777}
   - component: {fileID: 1108741112960738917}
   - component: {fileID: 1929549780275843648}
+  - component: {fileID: -6072554158359665755}
   m_Layer: 0
   m_Name: EnemyB
   m_TagString: blue
@@ -147,5 +148,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ca835b03b65d64498135cbc779c45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+--- !u!114 &-6072554158359665755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901095091924249793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e826cb366fff5f4ba4ca68e36229f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
