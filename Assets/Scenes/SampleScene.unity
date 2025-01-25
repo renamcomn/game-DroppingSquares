@@ -845,7 +845,6 @@ MonoBehaviour:
   - {fileID: 5901095091924249793, guid: 25b26b242a1c5a6438974440236921b2, type: 3}
   player: {fileID: 1196561587}
   spawnerTime: 2
-  rotationSpeed: 360
   counter: 0
 --- !u!1 &1165588806
 GameObject:
