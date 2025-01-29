@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +16,9 @@ public class GameManager : MonoBehaviour
     public float maxPitch = 2f; // Limite máximo do pitch
     private float currentPitch; // Pitch atual
     public int points = 0;
-
+    public List<GameObject> enemies;
+    public GameObject player;
+    public float spawnerTime = 2f;
      private void Awake()
     {
         currentPitch = basePitch;
@@ -29,6 +32,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(SpawnEnemies());
     }
 
     // Método para destruir inimigos com base na tag
@@ -79,5 +87,23 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         // Exibe a mensagem de Game Over
         Debug.Log("Game Over! Pontuação: " + points);
+    }
+
+    private IEnumerator SpawnEnemies()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(spawnerTime);
+
+            GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Count)], new Vector3(0f, 7f, 0f), Quaternion.identity);
+            Renderer enemyRenderer = spawnedEnemy.GetComponent<Renderer>();
+            Renderer playerRenderer = player.GetComponent<Renderer>();
+
+            if (enemyRenderer != null)
+            {
+                Material enemyMaterial = enemyRenderer.material;
+                playerRenderer.material = enemyMaterial;
+            }
+        }
     }
 }
